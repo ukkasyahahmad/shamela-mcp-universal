@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "shamela": {
+      "command": "node",
+      "args": [
+        "/ABSOLUTE/PATH/TO/shamelamcp/dist/index.js"
+      ]
+    }
+  }
+}

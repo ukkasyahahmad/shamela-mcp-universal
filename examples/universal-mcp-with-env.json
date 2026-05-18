@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "shamela": {
+      "command": "node",
+      "args": [
+        "/ABSOLUTE/PATH/TO/shamelamcp/dist/index.js"
+      ],
+      "env": {
+        "SHAMELA_INSTALL_ROOT": "/ABSOLUTE/PATH/TO/Shamela",
+        "SHAMELA_JRE": "/ABSOLUTE/PATH/TO/java"
+      }
+    }
+  }
+}

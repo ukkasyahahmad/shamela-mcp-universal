@@ -1,0 +1,65 @@
+{
+  "name": "shamela-mcp",
+  "version": "1.0.1",
+  "description": "Universal MCP server for searching and studying a local Maktabah al-Shamela 4 install. 20 read-only tools.",
+  "author": {
+    "name": "ukkasyahahmad",
+    "email": "hatimfatih1504@gmail.com",
+    "url": "https://github.com/ukkasyahahmad"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukkasyahahmad/shamela-mcp-universal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ukkasyahahmad/shamela-mcp-universal/issues"
+  },
+  "homepage": "https://github.com/ukkasyahahmad/shamela-mcp-universal#readme",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "shamela-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "helper",
+    "docs",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build:server": "esbuild src/server/index.ts --bundle --platform=node --target=node20 --format=esm --loader:.wasm=binary --outfile=dist/index.js --banner:js=\"#!/usr/bin/env node\nimport { createRequire as __cr } from 'module'; import { fileURLToPath as __furl } from 'url'; import { dirname as __dn } from 'path'; const require = __cr(import.meta.url); const __filename = __furl(import.meta.url); const __dirname = __dn(__filename);\"",
+    "build:java": "node scripts/build-java.mjs",
+    "build": "npm run build:server && npm run build:java",
+    "start": "node dist/index.js",
+    "start:stdio": "node dist/index.js",
+    "release:stage": "node scripts/stage-release.mjs",
+    "smoke": "tsx tests/smoke.ts",
+    "benchmark": "tsx tests/benchmark.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.0",
+    "sql.js": "^1.14.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "@types/sql.js": "^1.4.11",
+    "@vitest/coverage-v8": "^4.1.5",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.5"
+  }
+}

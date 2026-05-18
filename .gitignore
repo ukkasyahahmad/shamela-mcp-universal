@@ -1,0 +1,31 @@
+# Build outputs
+dist/
+helper/
+release/
+.cache/
+
+# Test artifacts
+coverage/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Gradle
+src/java/.gradle/
+src/java/build/
+src/java/app/
+.gradle/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Local env
+.env
+.env.local
